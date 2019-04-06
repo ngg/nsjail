@@ -133,7 +133,7 @@ static int listenMode(nsjconf_t* nsjconf) {
 		}
 		int connfd = net::acceptConn(listenfd);
 		if (connfd >= 0) {
-			subproc::runChild(nsjconf, connfd, connfd, connfd);
+			subproc::runChild(nsjconf, connfd, connfd, STDERR_FILENO);
 			close(connfd);
 		}
 		subproc::reapProc(nsjconf);
